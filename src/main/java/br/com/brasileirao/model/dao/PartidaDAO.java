@@ -8,6 +8,7 @@ import br.com.brasileirao.exceptions.DAOException;
 import br.com.brasileirao.exceptions.ErrorCode;
 import br.com.brasileirao.model.domain.Partida;
 
+
 public class PartidaDAO {
 
 	public List<Partida> getAll() {
@@ -27,7 +28,7 @@ public class PartidaDAO {
 		return partidas;
 	}
 
-	public List<Partida> getByRodada(Integer rodada) {
+	public List<Partida> getByRound(Integer rodada) {
 		EntityManager em = JPAUtil.getEntityManager();
 		List<Partida> partidas = null;
 
@@ -53,7 +54,7 @@ public class PartidaDAO {
 		return partidas;
 	}
 	
-	public List<Partida> getByTime(String time) {
+	public List<Partida> getByTeam(String time) {
 		EntityManager em = JPAUtil.getEntityManager();
 		List<Partida> partidas = null;
 
@@ -74,4 +75,26 @@ public class PartidaDAO {
 
 		return partidas;
 	}
+	
+	public List<Partida> getByPagination(int firstResult, int maxResults) {
+        List<Partida> partidas;
+        EntityManager em = JPAUtil.getEntityManager();
+                 
+        try {
+            partidas = em.createQuery("select p from Partida p", Partida.class)
+                    .setFirstResult(firstResult - 1)
+                    .setMaxResults(maxResults)
+                    .getResultList();
+        } catch (RuntimeException ex) {
+            throw new DAOException("Erro ao buscar partidas no banco de dados: " + ex.getMessage(), ErrorCode.SERVER_ERROR.getCode());
+        } finally {
+            em.close();
+        }
+         
+        if (partidas.isEmpty()) {
+            throw new DAOException("Página com partidas vazia.", ErrorCode.NOT_FOUND.getCode());
+        }
+         
+        return partidas;
+    }
 }
