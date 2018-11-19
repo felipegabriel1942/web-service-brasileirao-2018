@@ -10,7 +10,7 @@
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<class>br.com.webservicejersey.model.domain.Produto</class>
+		<class>br.com.brasileirao.model.domain.Partida</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver"

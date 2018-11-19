@@ -19,7 +19,7 @@ public class PartidaDAO {
 			partidas = em.createQuery("select p from Partida p", Partida.class).getResultList();
 
 		} catch (RuntimeException ex) {
-			throw new DAOException("Erro ao recuperar todos os produtos do banco:" + ex.getMessage(),
+			throw new DAOException("Erro ao recuperar todas as partidas do banco:" + ex.getMessage(),
 					ErrorCode.SERVER_ERROR.getCode());
 		} finally {
 			em.close();

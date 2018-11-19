@@ -20,7 +20,7 @@ public class PartidaService {
 		return dao.getByTeam(time);
 	}
 	
-	public List<Partida> getPartidaByPagination(int firstResult, int maxResults){
+	public List<Partida> getPartidasByPagination(int firstResult, int maxResults){
 		return dao.getByPagination(firstResult, maxResults);
 	}
 }
