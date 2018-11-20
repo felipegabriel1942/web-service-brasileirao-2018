@@ -1,8 +1,5 @@
 package br.com.brasileirao.model.domain;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,13 +19,6 @@ public class Partida {
 	
 	private String visitante;	
 	
-	@Column(name = "resultado_mandante")
-	private Integer resultadoMandante;
-	
-	@Column(name = "resultado_visitante")
-	private Integer resultadoVisitante;
-	
-	private Date data;
 
 	public Long getId() {
 		return id;
@@ -62,30 +52,5 @@ public class Partida {
 		this.visitante = visitante;
 	}
 
-	public Integer getResultadoMandante() {
-		return resultadoMandante;
-	}
-
-	public void setResultadoMandante(Integer resultadoMandante) {
-		this.resultadoMandante = resultadoMandante;
-	}
-
-	public Integer getResultadoVisitante() {
-		return resultadoVisitante;
-	}
-
-	public void setResultadoVisitante(Integer resultadoVisitante) {
-		this.resultadoVisitante = resultadoVisitante;
-	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-	
-	
-	
+		
 }

@@ -44,7 +44,7 @@ public class PartidaResource {
 	 */
 
 	@GET
-	@Path("{rodadaId}")
+	@Path("/rodada/{rodadaId}")
 	public List<Partida> getPartidasByRounds(@PathParam("rodadaId") int rodada) {
 		return service.getPartidasByRound(rodada);
 	}
@@ -56,7 +56,7 @@ public class PartidaResource {
 	 * @return
 	 */
 	@GET
-	@Path("{time}")
+	@Path("/time/{time}")
 	public List<Partida> getPartidasByTeam(@PathParam("time") String time) {
 		return service.getPartidasByTeam(time);
 	}

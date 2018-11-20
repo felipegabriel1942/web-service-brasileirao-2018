@@ -59,7 +59,7 @@ public class PartidaDAO {
 		List<Partida> partidas = null;
 
 		try {
-			partidas = em.createQuery("select p from Partida p where p.mandante = :nomeTime or p.visitante = :nomeTime", Partida.class)
+			partidas = em.createQuery("select p from Partida p where p.mandante like :nomeTime or p.visitante like :nomeTime", Partida.class)
 					.setParameter("nomeTime", "%" + time + "%")
 					.getResultList();
 		} catch (RuntimeException ex) {
