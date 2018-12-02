@@ -23,4 +23,8 @@ public class PartidaService {
 	public List<Partida> getPartidasByPagination(int firstResult, int maxResults){
 		return dao.getByPagination(firstResult, maxResults);
 	}
+	
+	public Partida getPartidaById(Long id) {
+		return dao.getById(id);
+	}
 }

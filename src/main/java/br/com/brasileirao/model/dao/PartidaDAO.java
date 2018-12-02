@@ -76,6 +76,28 @@ public class PartidaDAO {
 		return partidas;
 	}
 	
+	public Partida getById(Long id) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Partida partida = new Partida();
+		
+		try {
+			partida = em.createQuery("select p from Partida p where p.id = :idPartida", Partida.class)
+					.setParameter("idPartida", id)
+					.getSingleResult();
+		} catch (RuntimeException ex) {
+			throw new DAOException("Erro ao buscar partidas no banco de dados: " + ex.getMessage(),
+					ErrorCode.SERVER_ERROR.getCode());
+		} finally {
+			em.close();
+		}
+
+		if(partida == null) {
+			throw new DAOException("A consulta não encontrou partidas.", ErrorCode.NOT_FOUND.getCode());
+		}
+
+		return partida;
+	}
+	
 	public List<Partida> getByPagination(int firstResult, int maxResults) {
         List<Partida> partidas;
         EntityManager em = JPAUtil.getEntityManager();

@@ -60,5 +60,11 @@ public class PartidaResource {
 	public List<Partida> getPartidasByTeam(@PathParam("time") String time) {
 		return service.getPartidasByTeam(time);
 	}
+	
+	@GET
+	@Path("/id/{idPartida}")
+	public Partida getPartidaById(@PathParam("idPartida") Integer idPartida) {		
+		return service.getPartidaById(Long.parseLong(idPartida.toString()));
+	}
 
 }
