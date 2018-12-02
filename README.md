@@ -10,7 +10,7 @@ http://localhost:8080/webservice-brasileirao/webapi/partidas/time/{nome-do-time}
 http://localhost:8080/webservice-brasileirao/webapi/partidas/rodada/{numero-da-rodada}
 
 3.Método de busca por id da partida:
-http://localhost:8080/webservice-brasileirao/webapi/partidas/rodada/{id-da-partida}
+http://localhost:8080/webservice-brasileirao/webapi/partidas/id/{id-da-partida}
 
 
 ### Base de dados
